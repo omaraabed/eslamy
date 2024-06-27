@@ -1,3 +1,4 @@
+import 'package:eslamy/hadeth_details.dart';
 import 'package:eslamy/home_screen.dart';
 import 'package:eslamy/myt_theme.dart';
 import 'package:eslamy/sura_content.dart';
@@ -19,10 +20,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.routeName,
       routes: {
-        HomeScreen.routeName :(context) => HomeScreen(),
-        SuraContent.routeName :(context) => SuraContent(),
+        HomeScreen.routeName: (context) => HomeScreen(),
+        SuraContent.routeName: (context) => SuraContent(),
+        HadethDetails.routeName: (context) => HadethDetails(),
       },
     );
   }
 }
-

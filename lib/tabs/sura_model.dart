@@ -1,5 +1,6 @@
-class SuraModel{
+class SuraModel {
   String name;
   int index;
-  SuraModel(this.name,this.index);
+
+  SuraModel(this.name, this.index);
 }

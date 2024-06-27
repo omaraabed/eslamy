@@ -31,7 +31,7 @@ class _SuraContentState extends State<SuraContent> {
           title: Text(
             arg.name,
             style:
-            Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 30),
+                Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 30),
           ),
         ),
         body: Padding(
@@ -62,8 +62,9 @@ class _SuraContentState extends State<SuraContent> {
                             ),
                             child: Text(
                               '${index + 1} ',
-                              style: TextStyle(fontWeight: FontWeight.bold,
-                              color: Colors.white),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
                             ),
                           ),
                           Expanded(

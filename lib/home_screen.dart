@@ -12,8 +12,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int index=0;
-  List<Widget>tabs=[QuranTab(),SebhaTab(),RadioTab(),AhadethTab()];
+  int index = 0;
+  List<Widget> tabs = [QuranTab(), SebhaTab(), RadioTab(), AhadethTab()];
 
   @override
   Widget build(BuildContext context) {
@@ -32,21 +32,26 @@ class _HomeScreenState extends State<HomeScreen> {
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: index,
           onTap: (value) {
-            index=value;
-            setState(() {
-
-            });
+            index = value;
+            setState(() {});
           },
           items: [
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage('assets/images/moshaf.png')),
-                label: 'Moshaf',backgroundColor: Theme.of(context).primaryColor),BottomNavigationBarItem(
+                label: 'Moshaf',
+                backgroundColor: Theme.of(context).primaryColor),
+            BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage('assets/images/sebha.png')),
-                label: 'Sebha',backgroundColor: Theme.of(context).primaryColor),BottomNavigationBarItem(
+                label: 'Sebha',
+                backgroundColor: Theme.of(context).primaryColor),
+            BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage('assets/images/radio.png')),
-                label: 'Radio',backgroundColor: Theme.of(context).primaryColor),BottomNavigationBarItem(
+                label: 'Radio',
+                backgroundColor: Theme.of(context).primaryColor),
+            BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage('assets/images/ahadeth.png')),
-                label: 'Ahadeth',backgroundColor: Theme.of(context).primaryColor),
+                label: 'Ahadeth',
+                backgroundColor: Theme.of(context).primaryColor),
           ],
         ),
         body: tabs[index],
