@@ -69,7 +69,7 @@ class _SuraContentState extends State<SuraContent> {
                           ),
                           Expanded(
                             child: Text(
-                              verses[index],
+                              verses[index],style: Theme.of(context).textTheme.displayLarge,
                               textAlign: TextAlign.justify,
                             ),
                           ),

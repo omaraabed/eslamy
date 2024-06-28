@@ -20,7 +20,7 @@ class HadethDetails extends StatelessWidget {
           title: Text(
             arg.title,
             style:
-                Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 30),
+                Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         body: Padding(
@@ -31,7 +31,7 @@ class HadethDetails extends StatelessWidget {
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(40)),
-              child: Text(arg.content.join('\n')),
+              child: Text(arg.content.join('\n'),style: Theme.of(context).textTheme.displayLarge,),
             ),
           ),
         ),

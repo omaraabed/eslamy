@@ -150,7 +150,7 @@ class QuranTab extends StatelessWidget {
                         Navigator.pushNamed(context, SuraContent.routeName,
                             arguments: SuraModel(suraName[index], index));
                       },
-                      child: Text(suraName[index])));
+                      child: Text(suraName[index],style: Theme.of(context).textTheme.bodySmall,)));
             },
             itemCount: suraName.length,
           ),
