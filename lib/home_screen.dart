@@ -4,6 +4,7 @@ import 'package:eslamy/tabs/radio_tab.dart';
 import 'package:eslamy/tabs/sebha_tab.dart';
 import 'package:eslamy/tabs/settings_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
@@ -36,7 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
       Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: Text('Eslamy', style: Theme.of(context).textTheme.bodyLarge),
+          title: Text(AppLocalizations.of(context)!.appTitle,
+              style: Theme.of(context).textTheme.bodyLarge),
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: index,
@@ -47,19 +49,19 @@ class _HomeScreenState extends State<HomeScreen> {
           items: [
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage('assets/images/moshaf.png')),
-                label: 'Moshaf',
+                label: AppLocalizations.of(context)!.quran,
                 backgroundColor: Theme.of(context).primaryColor),
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage('assets/images/sebha.png')),
-                label: 'Sebha',
+                label: AppLocalizations.of(context)!.sebha,
                 backgroundColor: Theme.of(context).primaryColor),
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage('assets/images/radio.png')),
-                label: 'Radio',
+                label: AppLocalizations.of(context)!.radio,
                 backgroundColor: Theme.of(context).primaryColor),
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage('assets/images/ahadeth.png')),
-                label: 'Ahadeth',
+                label: AppLocalizations.of(context)!.ahadeth,
                 backgroundColor: Theme.of(context).primaryColor),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings),

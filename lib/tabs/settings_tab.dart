@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../Provider/my_provider.dart';
+import '../show_lang_botton_sheet.dart';
 import '../show_theme_botton_sheet.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsTab extends StatefulWidget {
   const SettingsTab({super.key});
@@ -12,39 +16,59 @@ class SettingsTab extends StatefulWidget {
 class _SettingsTabState extends State<SettingsTab> {
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<MyProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(18.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Theming',style: Theme.of(context).textTheme.bodyLarge,),
+          Text(
+            AppLocalizations.of(context)!.theming,
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
           InkWell(
             onTap: () {
               showThemeSheet();
             },
             child: Container(
               width: double.infinity,
-              decoration:BoxDecoration(
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Theme.of(context).primaryColor),
+                border: Border.all(color:
+                Theme.of(context).brightness == Brightness.light
+                    ? Color(0xffB7935F)
+                    : Colors.white,),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('Light'),
+                child: Text(AppLocalizations.of(context)!.light),
               ),
             ),
           ),
-          SizedBox(height: 25,),
-          Text('Language ',style: Theme.of(context).textTheme.bodyLarge,),
-          Container(
-            width: double.infinity,
-            decoration:BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: Theme.of(context).primaryColor),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text('English'),
+          SizedBox(
+            height: 25,
+          ),
+          Text(
+            AppLocalizations.of(context)!.language,
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          InkWell(
+            onTap: () {
+              showLangSheet();
+            },
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color:
+                Theme.of(context).brightness == Brightness.light
+                    ? Color(0xffB7935F)
+                    : Colors.white,),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(provider.language=="en"?  "English" :"عربي",),
+              ),
             ),
           ),
         ],
@@ -52,9 +76,21 @@ class _SettingsTabState extends State<SettingsTab> {
     );
   }
 
-  void showThemeSheet(){
-    showModalBottomSheet(context: context, builder: (context) {
-     return ShowThemeBottomSheet();
-    },);
+
+  void showLangSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return ShowLangBottonSheet();
+      },
+    );
+  }
+  void showThemeSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return ShowThemeBottomSheet();
+      },
+    );
   }
 }

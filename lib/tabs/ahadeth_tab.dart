@@ -2,6 +2,7 @@ import 'package:eslamy/hadeth_details.dart';
 import 'package:eslamy/hadeth_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AhadethTab extends StatefulWidget {
   @override
@@ -26,7 +27,7 @@ class _AhadethTabState extends State<AhadethTab> {
           thickness: 3,
         ),
         Text(
-          'Ahadeth',
+          AppLocalizations.of(context)!.ahadeth,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         Divider(
