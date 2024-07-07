@@ -16,9 +16,12 @@ class RadioItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            radio.name ?? "",
-            style: Theme.of(context).textTheme.bodyMedium,
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0, right: 8),
+            child: Text(
+              radio.name ?? "",
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
           ),
           SizedBox(
             height: 10,
@@ -33,7 +36,9 @@ class RadioItem extends StatelessWidget {
                   icon: Icon(
                     Icons.play_arrow,
                     size: 50,
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Color(0xffFACC1D)
+                        : Color(0xffB7935F),
                   )),
               SizedBox(
                 width: 10,
@@ -45,7 +50,9 @@ class RadioItem extends StatelessWidget {
                   icon: Icon(
                     Icons.pause,
                     size: 50,
-                    color: Colors.black45,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Color(0xffFACC1D)
+                        : Color(0xffB7935F),
                   ))
             ],
           ),

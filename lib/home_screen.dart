@@ -2,6 +2,7 @@ import 'package:eslamy/tabs/ahadeth_tab.dart';
 import 'package:eslamy/tabs/quran_tab.dart';
 import 'package:eslamy/tabs/radio_tab.dart';
 import 'package:eslamy/tabs/sebha_tab.dart';
+import 'package:eslamy/tabs/settings_tab.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,7 +14,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int index = 0;
-  List<Widget> tabs = [QuranTab(), SebhaTab(), RadioTab(), AhadethTab()];
+  List<Widget> tabs = [
+    QuranTab(),
+    SebhaTab(),
+    RadioTab(),
+    AhadethTab(),
+    SettingsTab()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +28,15 @@ class _HomeScreenState extends State<HomeScreen> {
       Container(
           width: double.infinity,
           child: Image.asset(
-            'assets/images/bg3.png',
+            Theme.of(context).colorScheme.brightness == Brightness.light
+                ? 'assets/images/bg3.png'
+                : 'assets/images/bg.png',
             fit: BoxFit.fill,
           )),
       Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: Text('إسلامي', style: Theme.of(context).textTheme.bodyLarge),
+          title: Text('Eslamy', style: Theme.of(context).textTheme.bodyLarge),
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: index,
@@ -51,6 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage('assets/images/ahadeth.png')),
                 label: 'Ahadeth',
+                backgroundColor: Theme.of(context).primaryColor),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: 'Setting',
                 backgroundColor: Theme.of(context).primaryColor),
           ],
         ),

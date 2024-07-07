@@ -34,7 +34,9 @@ class _RadioTabState extends State<RadioTab> {
               future: ApiManager.getRadios(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return Center(child: CircularProgressIndicator(color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.black,));
                 } else if (snapshot.hasError) {
                   return Center(child: Text('Erooooooooor'));
                 }

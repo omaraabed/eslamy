@@ -20,20 +20,29 @@ class _AhadethTabState extends State<AhadethTab> {
       children: [
         Image.asset('assets/images/ahadeth2.png'),
         Divider(
+          color: Theme.of(context).brightness == Brightness.dark
+              ? Color(0xffFACC1D)
+              :  Color(0xffB7935F),
           thickness: 3,
-          color: Theme.of(context).primaryColor,
         ),
         Text(
-          'الأحاديث',
+          'Ahadeth',
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         Divider(
+          color: Theme.of(context).brightness == Brightness.dark
+              ? Color(0xffFACC1D)
+              :  Color(0xffB7935F),
           thickness: 3,
-          color: Theme.of(context).primaryColor,
         ),
         Expanded(
           child: ListView.separated(
             separatorBuilder: (context, index) => Divider(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Color(0xffFACC1D)
+                  :  Color(0xffB7935F),
+              endIndent: 50,
+              indent: 50,
               thickness: 1,
             ),
             itemBuilder: (context, index) {

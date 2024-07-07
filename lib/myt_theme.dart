@@ -8,6 +8,18 @@ class MyTheme {
 
   static ThemeData lightTheme = ThemeData(
       primaryColor: lightColor,
+      colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: lightColor,
+          onPrimary: Colors.black54,
+          secondary: Colors.grey.shade300,
+          onSecondary: Colors.black54,
+          error: Colors.red,
+          onError: Colors.white,
+          background: Colors.transparent,
+          onBackground: lightColor,
+          surface: Colors.white,
+          onSurface: Colors.black54),
       appBarTheme: AppBarTheme(
           elevation: 0,
           backgroundColor: Colors.transparent,
@@ -40,6 +52,18 @@ class MyTheme {
       ));
   static ThemeData darkTheme = ThemeData(
       primaryColor: darkColor,
+    colorScheme: ColorScheme(
+        brightness: Brightness.dark,
+        primary: darkColor,
+        onPrimary: Colors.white,
+        secondary: yellowColor,
+        onSecondary: Colors.white,
+        error: Colors.red,
+        onError: Colors.white,
+        background: Colors.transparent,
+        onBackground: darkColor,
+        surface: darkColor,
+        onSurface: yellowColor),
       appBarTheme: AppBarTheme(
           elevation: 0,
           backgroundColor: Colors.transparent,

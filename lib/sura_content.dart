@@ -22,7 +22,9 @@ class _SuraContentState extends State<SuraContent> {
       SizedBox(
           width: double.infinity,
           child: Image.asset(
-            'assets/images/bg3.png',
+            Theme.of(context).colorScheme.brightness == Brightness.light
+                ? 'assets/images/bg3.png'
+                : 'assets/images/bg.png',
             fit: BoxFit.fill,
           )),
       Scaffold(
@@ -38,7 +40,10 @@ class _SuraContentState extends State<SuraContent> {
           padding: const EdgeInsets.all(20.0),
           child: ListView.separated(
             separatorBuilder: (context, index) => Divider(
-              thickness: 2,
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Color(0xffFACC1D)
+                  : Color(0xffB7935F),
+              thickness: 3,
             ),
             itemBuilder: (context, index) {
               return Center(
@@ -48,7 +53,9 @@ class _SuraContentState extends State<SuraContent> {
                       margin: EdgeInsets.symmetric(vertical: 5),
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.8),
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Color(0xff141A2E)
+                            : Colors.white,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
@@ -69,7 +76,8 @@ class _SuraContentState extends State<SuraContent> {
                           ),
                           Expanded(
                             child: Text(
-                              verses[index],style: Theme.of(context).textTheme.displayLarge,
+                              verses[index],
+                              style: Theme.of(context).textTheme.displayLarge,
                               textAlign: TextAlign.justify,
                             ),
                           ),
