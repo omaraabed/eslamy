@@ -3,17 +3,21 @@ import 'package:eslamy/Provider/sura_detalis_provider.dart';
 import 'package:eslamy/hadeth_details.dart';
 import 'package:eslamy/home_screen.dart';
 import 'package:eslamy/myt_theme.dart';
+import 'package:eslamy/shared_preferences.dart';
 import 'package:eslamy/sura_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPref.pref = await SharedPreferences.getInstance();
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
-      create: (context) => MyProvider(),
+      create: (context) => MyProvider()..init(),
     ),
   ], child: const MyApp()));
 }
@@ -21,7 +25,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
